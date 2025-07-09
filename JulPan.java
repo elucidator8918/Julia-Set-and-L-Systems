@@ -30,6 +30,7 @@ public class JulPan extends JPanel
     }
     public void paintComponent(Graphics g)
     {
+        super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         Font f = new Font("Serif", Font.ITALIC,12);
         g2.setFont(f);

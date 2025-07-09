@@ -37,7 +37,7 @@ public class Complex
     {
         return new Complex(x*a.x-y*a.y,x*a.y+y*a.x);
     }
-    public Complex pow(Complex a,double p) 
+    public static Complex pow(Complex a,double p) 
     {        
         double mag = Math.pow(a.magnitude(),p),theta=a.phase();        
         a=new Complex(mag*Math.cos(p*theta),mag*Math.sin(p*theta));
