@@ -49,40 +49,9 @@ public class Julia extends JFrame implements ActionListener
         cp.setLayout(new FlowLayout());
         imageSrc = new JulPan();
         cp.add(imageSrc);
-        WindowListener l = new WindowAdapter()
-            {
-                public void windowClosing(WindowEvent ev)
-                {
-                    System.exit(0);
-                }
 
-                public void windowActivated(WindowEvent ev)
-                {
-                    repaint();
-                }
-
-                public void windowStateChanged(WindowEvent ev)
-                {
-                    repaint();
-                }
-            };
-        ComponentListener k = new ComponentAdapter()
-            {
-                public void componentResized(ComponentEvent e)
-                {
-                    repaint();
-                }
-            };
-        MouseListener mouseListener = new MouseAdapter()
-            {
-                public void mouseClicked(MouseEvent ev)
-                {
-                    return;
-                }
-            };
-        this.addWindowListener(l);
-        this.addComponentListener(k);
-        this.addMouseListener(mouseListener);
+        setSize(600, 480);
+        setVisible(true);
     }
 
     public void actionPerformed(ActionEvent ev)
@@ -136,7 +105,7 @@ public class Julia extends JFrame implements ActionListener
             }
         }
         else if ("Exit".equals(cmd))
-            System.exit(0);
+            dispose();
         else if ("Random".equals(cmd))
         {
             cr=(float)Math.random();
@@ -163,9 +132,6 @@ public class Julia extends JFrame implements ActionListener
 
     public static void main()
     {
-        JFrame frame = new Julia();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600,480);
-        frame.setVisible(true);
+        SwingUtilities.invokeLater(() -> new Julia());
     }
 }
